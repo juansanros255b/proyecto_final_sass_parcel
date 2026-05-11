@@ -6,7 +6,8 @@
   "scripts": {
     "start": "parcel",
     "build": "parcel build --public-url ./",
-    "sassdoc": "sassdoc src/scss/ -d sassdoc"
+    "sassdoc": "sassdoc src/scss/ -d sassdoc",
+    "deploy": "gh-pages -d dist"
   },
   "keywords": [],
   "author": "",
@@ -14,6 +15,7 @@
   "type": "commonjs",
   "devDependencies": {
     "@parcel/transformer-sass": "^2.16.4",
+    "gh-pages": "^6.3.0",
     "parcel": "^2.16.4",
     "sass": "^1.99.0",
     "sassdoc": "^2.7.4"
