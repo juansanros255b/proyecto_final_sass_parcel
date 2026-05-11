@@ -1,0 +1,41 @@
+////
+/// @group layout
+////
+
+@use "../abstracts" as *;
+
+.header {
+  @include flex-center();
+  justify-content: space-between;
+  padding: spacing("md") spacing("2xl");
+  background: rgba(20, 20, 30, 0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  @include transition(background-color box-shadow);
+
+  &--scrolled {
+    background: rgba(20, 20, 30, 0.98);
+    @include box-shadow("lg");
+  }
+}
+
+.logo {
+  font-family: map-get($fonts, "heading");
+  font-size: font-size("lg");
+  font-weight: 800;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  background: linear-gradient(90deg, color("primary"), color("secondary"));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  @include transition(opacity);
+
+  &:hover {
+    opacity: 0.85;
+  }
+}

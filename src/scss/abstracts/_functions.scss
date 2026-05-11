@@ -1,0 +1,101 @@
+////
+/// Funciones de acceso a los tokens de diseño definidos en `_variables.scss`.
+/// Todas las funciones emiten un `@warn` si la clave solicitada no existe en el mapa,
+/// evitando errores silenciosos y facilitando la depuración.
+///
+/// @group abstracts
+/// @author MiProyecto
+////
+
+// ══════════════════════════════════════════════════════
+// _functions.scss — Funciones de acceso a tokens
+// ══════════════════════════════════════════════════════
+
+@use "variables" as *;
+
+/// Obtiene un color del mapa `$colors`.
+/// Si la clave no existe emite un `@warn` en consola y devuelve `null`.
+///
+/// @param {String} $key - Nombre del color: `primary`, `secondary`, `accent`, `dark`, `light`, `white` o `gray`
+/// @return {Color} El valor hexadecimal o RGB del color
+///
+/// @example scss - Color de texto principal
+///   .link {
+///     color: color("primary"); // → #4a90e2
+///   }
+///
+/// @example scss - Color de fondo de un badge
+///   .badge {
+///     background-color: color("accent"); // → #ff6b6b
+///   }
+@function color($key) {
+  @if not map-has-key($colors, $key) {
+    @warn "Color `#{$key}` no encontrado en el mapa $colors. Claves disponibles: #{map-keys($colors)}.";
+  }
+  @return map-get($colors, $key);
+}
+
+/// Obtiene un tamaño de fuente del mapa `$font-sizes`.
+/// Si la clave no existe emite un `@warn` en consola y devuelve `null`.
+///
+/// @param {String} $key - Nombre del tamaño: `xs`, `sm`, `base`, `md`, `lg`, `xl`, `2xl` o `3xl`
+/// @return {Length} El valor en `rem` del tamaño de fuente
+///
+/// @example scss - Tamaño de fuente para un caption
+///   .caption {
+///     font-size: font-size("xs"); // → 0.75rem
+///   }
+///
+/// @example scss - Tamaño de fuente para un título hero
+///   .hero__title {
+///     font-size: font-size("3xl"); // → 3rem
+///   }
+@function font-size($key) {
+  @if not map-has-key($font-sizes, $key) {
+    @warn "Font-size `#{$key}` no encontrado en $font-sizes. Claves disponibles: #{map-keys($font-sizes)}.";
+  }
+  @return map-get($font-sizes, $key);
+}
+
+/// Obtiene un valor de espaciado del mapa `$spacing`.
+/// Si la clave no existe emite un `@warn` en consola y devuelve `null`.
+///
+/// @param {String} $key - Nombre del espaciado: `xs`, `sm`, `md`, `lg`, `xl`, `2xl` o `3xl`
+/// @return {Length} El valor en `rem` del espaciado
+///
+/// @example scss - Padding interior de una tarjeta
+///   .card {
+///     padding: spacing("xl"); // → 2rem
+///   }
+///
+/// @example scss - Gap entre secciones de página
+///   .layout__section {
+///     margin-bottom: spacing("3xl"); // → 4rem
+///   }
+@function spacing($key) {
+  @if not map-has-key($spacing, $key) {
+    @warn "Spacing `#{$key}` no encontrado en $spacing. Claves disponibles: #{map-keys($spacing)}.";
+  }
+  @return map-get($spacing, $key);
+}
+
+/// Convierte un valor en píxeles a su equivalente en `rem`.
+/// El cálculo asume una base de `16px` por defecto (estándar de los navegadores).
+/// Cambia `$base` si el `font-size` del `<html>` es diferente.
+///
+/// @param {Number} $px   - Valor en píxeles a convertir (sin unidad o con `px`)
+/// @param {Number} $base [16] - Tamaño base en píxeles del elemento raíz
+/// @return {Length} El valor equivalente en `rem`
+///
+/// @example scss - Convertir 24px a rem con base estándar
+///   .heading {
+///     font-size: px-to-rem(24px); // → 1.5rem
+///   }
+///
+/// @example scss - Convertir con base personalizada de 10px
+///   .label {
+///     font-size: px-to-rem(14px, 10); // → 1.4rem
+///   }
+@function px-to-rem($px, $base: 16) {
+  @return calc(#{$px} / #{$base}) * 1rem;
+}

@@ -1,0 +1,35 @@
+////
+/// @group layout
+////
+
+@use '../abstracts' as *;
+
+.footer {
+  background-color: color("dark");
+  color: color("light");
+  text-align: center;
+  padding: spacing("2xl") spacing("xl");
+
+  &__links,
+  &__social {
+    @include flex-center();
+    gap: spacing("lg");
+    margin-bottom: spacing("md");
+
+    a {
+      color: color("light");
+      font-size: font-size("sm");
+      @include transition(color);
+
+      &:hover {
+        color: color("primary");
+      }
+    }
+  }
+
+  &__copy {
+    font-size: font-size("xs");
+    color: color("gray");
+    margin-bottom: 0;
+  }
+}

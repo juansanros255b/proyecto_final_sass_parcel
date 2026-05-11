@@ -1,0 +1,32 @@
+////
+/// @group components
+////
+
+@use "../abstracts" as *;
+
+.heading {
+  font-family: map-get($fonts, "heading");
+  color: color("dark");
+
+  &--hero {
+    font-size: font-size("3xl");
+    color: color("white");
+  }
+
+  &--section {
+    font-size: font-size("xl");
+    text-align: center;
+    margin-bottom: spacing("2xl");
+    position: relative;
+
+    &::after {
+      content: "";
+      display: block;
+      width: 60px;
+      height: 4px;
+      background-color: color("primary");
+      margin: spacing("sm") auto 0;
+      border-radius: map-get($radii, "full");
+    }
+  }
+}

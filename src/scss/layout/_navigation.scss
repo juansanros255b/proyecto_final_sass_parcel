@@ -1,0 +1,74 @@
+////
+/// @group layout
+////
+
+@use "../abstracts" as *;
+
+.nav {
+  &__list {
+    @include flex-center();
+    gap: spacing("xl");
+  }
+
+  &__link {
+    font-size: font-size("sm");
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.75);
+    letter-spacing: 0.5px;
+    padding: spacing("xs") 0;
+    position: relative;
+    @include transition(color);
+
+    // Línea animada bajo el enlace
+    &::after {
+      content: "";
+      position: absolute;
+      bottom: -2px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: linear-gradient(90deg, color("primary"), color("secondary"));
+      border-radius: map-get($radii, "full");
+      @include transition(width);
+    }
+
+    &:hover {
+      color: color("white");
+
+      &::after {
+        width: 100%;
+      }
+    }
+
+    &--active {
+      color: color("white");
+
+      &::after {
+        width: 100%;
+      }
+    }
+  }
+
+  // CTA en la nav
+  &__cta {
+    margin-left: spacing("md");
+    padding: spacing("xs") spacing("lg");
+    background: linear-gradient(135deg, color("primary"), color("secondary"));
+    color: color("white");
+    font-size: font-size("sm");
+    font-weight: 700;
+    border-radius: map-get($radii, "full");
+    letter-spacing: 0.5px;
+    @include transition(opacity box-shadow);
+
+    &:hover {
+      opacity: 0.9;
+      @include box-shadow("md");
+      color: color("white");
+
+      &::after {
+        display: none;
+      }
+    }
+  }
+}

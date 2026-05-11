@@ -1,0 +1,40 @@
+////
+/// @group components
+////
+
+@use '../abstracts' as *;
+
+/// Botón base
+.btn {
+  display: inline-block;
+  padding: spacing("sm") spacing("xl");
+  border-radius: map-get($radii, "md");
+  font-family: map-get($fonts, "heading");
+  font-size: font-size("sm");
+  font-weight: 600;
+  text-align: center;
+  @include transition(background-color color box-shadow);
+
+  // Modificador primario
+  &--primary {
+    background-color: color("primary");
+    color: color("white");
+
+    &:hover {
+      background-color: color("secondary");
+      @include box-shadow("md");
+    }
+  }
+
+  // Modificador secundario
+  &--secondary {
+    background-color: transparent;
+    color: color("primary");
+    border: 2px solid color("primary");
+
+    &:hover {
+      background-color: color("primary");
+      color: color("white");
+    }
+  }
+}

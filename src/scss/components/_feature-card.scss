@@ -1,0 +1,61 @@
+////
+/// @group components
+////
+
+@use "../abstracts" as *;
+
+/// Tarjeta de característica con icono, título y descripción
+.feature-card {
+  background-color: color("white");
+  border-radius: map-get($radii, "lg");
+  padding: spacing("xl") spacing("xl") spacing("lg");
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  position: relative;
+  overflow: hidden;
+  @include transition(transform box-shadow border-color);
+
+  // Brillo sutil en hover
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, color("primary"), color("secondary"));
+    opacity: 0;
+    @include transition(opacity);
+  }
+
+  &:hover {
+    transform: translateY(-6px);
+    @include box-shadow("lg");
+    border-color: transparent;
+
+    &::before {
+      opacity: 1;
+    }
+  }
+
+  &__icon {
+    font-size: 2.5rem;
+    margin-bottom: spacing("md");
+    display: block;
+    line-height: 1;
+  }
+
+  &__title {
+    font-family: map-get($fonts, "heading");
+    font-size: font-size("md");
+    font-weight: 700;
+    color: color("dark");
+    margin-bottom: spacing("sm");
+  }
+
+  &__text {
+    font-size: font-size("sm");
+    color: color("gray");
+    line-height: 1.7;
+    margin-bottom: 0;
+  }
+}

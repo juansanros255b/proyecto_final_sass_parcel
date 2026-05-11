@@ -1,0 +1,131 @@
+////
+/// Tokens de diseño globales del proyecto.
+/// Define colores, tipografía, espaciados, breakpoints y radios de borde.
+///
+/// @group abstracts
+/// @author MiProyecto
+////
+
+// ══════════════════════════════════════════════════════
+// _variables.scss — Tokens de diseño globales
+// ══════════════════════════════════════════════════════
+
+// ── Colores ────────────────────────────────────────────
+
+/// Paleta de colores principal del proyecto.
+/// Úsalos siempre a través de la función `color($key)` definida en `_functions.scss`.
+///
+/// @type Map
+/// @prop {Color} primary   [#4a90e2] - Azul. Botones, enlaces y acentos principales
+/// @prop {Color} secondary [#7b68ee] - Violeta. Elementos secundarios y hover
+/// @prop {Color} accent    [#ff6b6b] - Rojo coral. Destacados, badges y CTAs
+/// @prop {Color} dark      [#2c2c2c] - Fondos oscuros, footer y textos sobre fondo claro
+/// @prop {Color} light     [#f5f5f5] - Fondos claros, superficies y tarjetas
+/// @prop {Color} white     [#ffffff] - Fondo base y texto sobre fondos oscuros
+/// @prop {Color} gray      [#888888] - Textos secundarios, placeholders y metadatos
+$colors: (
+  "primary": #4a90e2,
+  "secondary": #7b68ee,
+  "accent": #ff6b6b,
+  "dark": #2c2c2c,
+  "light": #f5f5f5,
+  "white": #ffffff,
+  "gray": #888888,
+);
+
+// ── Tipografía ─────────────────────────────────────────
+
+/// Escala tipográfica del proyecto.
+/// Úsala siempre a través de la función `font-size($key)` definida en `_functions.scss`.
+///
+/// @type Map
+/// @prop {Length} xs   [0.75rem]  - Etiquetas, badges y textos legales
+/// @prop {Length} sm   [0.875rem] - Texto de apoyo, captions y metadatos
+/// @prop {Length} base [1rem]     - Cuerpo de texto principal
+/// @prop {Length} md   [1.25rem]  - Texto destacado y subtítulos menores
+/// @prop {Length} lg   [1.5rem]   - Subtítulos de sección
+/// @prop {Length} xl   [2rem]     - Títulos de componente
+/// @prop {Length} 2xl  [2.5rem]   - Títulos de sección
+/// @prop {Length} 3xl  [3rem]     - Títulos hero y headings principales
+$font-sizes: (
+  "xs": 0.75rem,
+  "sm": 0.875rem,
+  "base": 1rem,
+  "md": 1.25rem,
+  "lg": 1.5rem,
+  "xl": 2rem,
+  "2xl": 2.5rem,
+  "3xl": 3rem,
+);
+
+/// Familias tipográficas del proyecto.
+///
+/// @type Map
+/// @prop {String} heading [('Montserrat', sans-serif)] - Fuente para títulos y headings
+/// @prop {String} body    [('Open Sans', sans-serif)]  - Fuente para cuerpo de texto y UI
+$fonts: (
+  "heading": (
+    "Montserrat",
+    sans-serif,
+  ),
+  "body": (
+    "Open Sans",
+    sans-serif,
+  ),
+);
+
+// ── Espaciado ──────────────────────────────────────────
+
+/// Escala de espaciados globales.
+/// Úsala siempre a través de la función `spacing($key)` definida en `_functions.scss`.
+///
+/// @type Map
+/// @prop {Length} xs  [0.25rem] - Separación mínima entre elementos inline
+/// @prop {Length} sm  [0.5rem]  - Padding interior de badges y chips
+/// @prop {Length} md  [1rem]    - Espaciado base entre elementos de un componente
+/// @prop {Length} lg  [1.5rem]  - Gap entre columnas de grid y secciones menores
+/// @prop {Length} xl  [2rem]    - Padding de tarjetas y contenedores
+/// @prop {Length} 2xl [3rem]    - Separación entre secciones de página
+/// @prop {Length} 3xl [4rem]    - Padding de secciones hero y bloques principales
+$spacing: (
+  "xs": 0.25rem,
+  "sm": 0.5rem,
+  "md": 1rem,
+  "lg": 1.5rem,
+  "xl": 2rem,
+  "2xl": 3rem,
+  "3xl": 4rem,
+);
+
+// ── Breakpoints ────────────────────────────────────────
+
+/// Breakpoints responsivos del proyecto.
+/// Úsalos siempre a través del mixin `respond-to($breakpoint)` definido en `_mixins.scss`.
+///
+/// @type Map
+/// @prop {Length} sm [576px]  - Móviles en landscape y dispositivos pequeños
+/// @prop {Length} md [768px]  - Tablets en portrait
+/// @prop {Length} lg [992px]  - Tablets en landscape y portátiles pequeños
+/// @prop {Length} xl [1200px] - Escritorio y pantallas anchas
+$breakpoints: (
+  "sm": 576px,
+  "md": 768px,
+  "lg": 992px,
+  "xl": 1200px,
+);
+
+// ── Border radius ──────────────────────────────────────
+
+/// Escala de radios de borde del proyecto.
+///
+/// @type Map
+/// @prop {Length} sm   [4px]    - Inputs, tags y elementos pequeños
+/// @prop {Length} md   [8px]    - Botones y tarjetas compactas
+/// @prop {Length} lg   [16px]   - Tarjetas principales y modales
+/// @prop {Length} full [9999px] - Píldoras, badges y avatares circulares
+$radii: (
+  "sm": 4px,
+  "md": 8px,
+  "lg": 16px,
+  "full": 9999px,
+);

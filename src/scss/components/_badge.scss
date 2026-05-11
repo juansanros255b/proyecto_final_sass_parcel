@@ -1,0 +1,24 @@
+////
+/// @group components
+////
+
+@use '../abstracts' as *;
+
+/// Insignia / Badge
+.badge {
+  display: inline-block;
+  padding: spacing("xs") spacing("sm");
+  border-radius: map-get($radii, "full");
+  font-size: font-size("xs");
+  font-weight: 600;
+
+  &--primary {
+    background-color: color("primary");
+    color: color("white");
+  }
+
+  &--accent {
+    background-color: color("accent");
+    color: color("white");
+  }
+}

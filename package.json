@@ -1,0 +1,21 @@
+{
+  "name": "miproyecto",
+  "version": "1.0.0",
+  "description": "Landing Page con Sass y Parcel",
+  "source": "src/index.html",
+  "scripts": {
+    "start": "parcel",
+    "build": "parcel build --public-url ./",
+    "sassdoc": "sassdoc src/scss/ -d sassdoc"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "devDependencies": {
+    "@parcel/transformer-sass": "^2.16.4",
+    "parcel": "^2.16.4",
+    "sass": "^1.99.0",
+    "sassdoc": "^2.7.4"
+  }
+}
