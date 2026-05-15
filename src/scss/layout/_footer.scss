@@ -2,13 +2,20 @@
 /// @group layout
 ////
 
-@use '../abstracts' as *;
+@use "../abstracts" as *;
 
 .footer {
   background-color: color("dark");
   color: color("light");
   text-align: center;
   padding: spacing("2xl") spacing("xl");
+
+  &__logo {
+    width: 60px;
+    margin: 0 auto spacing("lg");
+    display: block;
+    opacity: 0.8;
+  }
 
   &__links,
   &__social {

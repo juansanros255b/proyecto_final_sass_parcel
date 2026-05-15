@@ -57,34 +57,6 @@
   justify-content: center;
 }
 
-/// Trunca el texto de un elemento con puntos suspensivos (`…`).
-/// Con `$lines: 1` usa la técnica `white-space: nowrap` (compatible con todos los navegadores).
-/// Con `$lines > 1` usa `-webkit-line-clamp` (compatible con navegadores modernos).
-///
-/// @param {Number} $lines [1] - Número máximo de líneas visibles antes del truncado
-///
-/// @example scss - Truncar a una sola línea
-///   .card__title {
-///     @include text-truncate();
-///   }
-///
-/// @example scss - Truncar a tres líneas
-///   .card__excerpt {
-///     @include text-truncate(3);
-///   }
-@mixin text-truncate($lines: 1) {
-  @if $lines == 1 {
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-  } @else {
-    display: -webkit-box;
-    -webkit-line-clamp: $lines;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
-  }
-}
-
 /// Aplica una transición CSS configurable en propiedades, duración y curva de animación.
 /// Úsalo en cualquier elemento que necesite animación suave en hover, focus o estado activo.
 ///

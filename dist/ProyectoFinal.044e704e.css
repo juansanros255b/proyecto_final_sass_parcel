@@ -544,6 +544,13 @@ a:hover {
   padding: 3rem 2rem;
 }
 
+.footer__logo {
+  opacity: .8;
+  width: 60px;
+  margin: 0 auto 1.5rem;
+  display: block;
+}
+
 .footer__links, .footer__social {
   flex-direction: row;
   justify-content: center;
