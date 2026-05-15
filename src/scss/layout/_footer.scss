@@ -8,7 +8,11 @@
   background-color: color("dark");
   color: color("light");
   text-align: center;
-  padding: spacing("2xl") spacing("xl");
+  padding: spacing("xl") spacing("md");
+
+  @include respond-to("md") {
+    padding: spacing("2xl") spacing("xl");
+  }
 
   &__logo {
     width: 60px;
@@ -20,7 +24,8 @@
   &__links,
   &__social {
     @include flex-center();
-    gap: spacing("lg");
+    flex-wrap: wrap;
+    gap: spacing("md") spacing("lg");
     margin-bottom: spacing("md");
 
     a {

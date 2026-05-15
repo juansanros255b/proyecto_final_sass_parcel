@@ -8,11 +8,19 @@
   &__container {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 0 spacing("xl");
+    padding: 0 spacing("lg");
+
+    @include respond-to("md") {
+      padding: 0 spacing("xl");
+    }
   }
 
   &__section {
-    padding: spacing("3xl") 0;
+    padding: spacing("xl") 0;
+
+    @include respond-to("md") {
+      padding: spacing("3xl") 0;
+    }
   }
 }
 
@@ -33,28 +41,47 @@
     color("secondary") 100%
   );
   text-align: center;
-  padding: spacing("3xl") spacing("xl");
+  padding: spacing("2xl") spacing("md");
+  @include respond-to("md") {
+    padding: spacing("3xl") spacing("xl");
+  }
 
   &__content {
     max-width: 700px;
   }
 
   &__title {
-    font-size: font-size("3xl");
+    font-size: font-size("xl");
     color: color("white");
     margin-bottom: spacing("md");
+
+    @include respond-to("md") {
+      font-size: font-size("2xl");
+    }
+
+    @include respond-to("lg") {
+      font-size: font-size("3xl");
+    }
   }
 
   &__subtitle {
-    font-size: font-size("md");
+    font-size: font-size("base");
     color: color("light");
     margin-bottom: spacing("xl");
+
+    @include respond-to("md") {
+      font-size: font-size("md");
+    }
   }
 }
 
 .features {
-  padding: spacing("3xl") 0;
+  padding: spacing("2xl") 0;
   background-color: color("white");
+
+  @include respond-to("md") {
+    padding: spacing("3xl") 0;
+  }
 
   &__header {
     text-align: center;
@@ -83,7 +110,7 @@
   }
 
   &__grid {
-    @include auto-grid(280px, spacing("lg"));
+    @include auto-grid(min(100%, 280px), spacing("lg"));
   }
 }
 
@@ -92,10 +119,14 @@
   --testimonials-logo-color: rgba(255, 255, 255, 0.32);
   --testimonials-logo-hover-color: #{color("white")};
 
-  padding: spacing("3xl") 0;
+  padding: spacing("2xl") 0;
   background-color: #0f0f1a;
   position: relative;
   overflow: hidden;
+
+  @include respond-to("md") {
+    padding: spacing("3xl") 0;
+  }
 
   // Fondo con gradiente sutil
   &::before {
@@ -161,23 +192,33 @@
   }
 
   &__grid {
-    @include auto-grid(300px, spacing("lg"));
-    margin-bottom: spacing("2xl");
+    @include auto-grid(min(100%, 300px), spacing("lg"));
+    margin-bottom: spacing("xl");
     align-items: stretch;
+
+    @include respond-to("md") {
+      margin-bottom: spacing("2xl");
+    }
   }
 
   // Barra de stats
   &__stats {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-    gap: spacing("lg");
+    grid-template-columns: repeat(2, 1fr);
+    gap: spacing("md");
     background: rgba(255, 255, 255, 0.04);
     border: 1px solid rgba(255, 255, 255, 0.08);
     border-radius: map-get($radii, "lg");
-    padding: spacing("xl") spacing("2xl");
+    padding: spacing("lg");
     text-align: center;
     margin-bottom: spacing("2xl");
     backdrop-filter: blur(8px);
+
+    @include respond-to("md") {
+      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+      gap: spacing("lg");
+      padding: spacing("xl") spacing("2xl");
+    }
   }
 
   &__stat {
@@ -188,12 +229,16 @@
 
   &__stat-number {
     font-family: map-get($fonts, "heading");
-    font-size: font-size("2xl");
+    font-size: font-size("xl");
     font-weight: 800;
     background: linear-gradient(90deg, color("primary"), color("secondary"));
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
+
+    @include respond-to("md") {
+      font-size: font-size("2xl");
+    }
   }
 
   &__stat-label {
@@ -245,10 +290,14 @@
 }
 
 .contact {
-  padding: spacing("3xl") 0;
+  padding: spacing("2xl") 0;
   background-color: color("white");
   color: color("dark");
   overflow: hidden;
+
+  @include respond-to("md") {
+    padding: spacing("3xl") 0;
+  }
 
   &__header {
     text-align: center;
@@ -275,9 +324,14 @@
 
   &__content {
     display: grid;
-    grid-template-columns: minmax(0, 0.9fr) minmax(320px, 1.1fr);
-    gap: spacing("2xl");
+    grid-template-columns: 1fr;
+    gap: spacing("xl");
     align-items: stretch;
+
+    @include respond-to("md") {
+      grid-template-columns: minmax(0, 0.9fr) minmax(320px, 1.1fr);
+      gap: spacing("2xl");
+    }
   }
 
   &__intro,
@@ -289,10 +343,14 @@
   }
 
   &__intro {
-    padding: spacing("2xl");
+    padding: spacing("xl");
     display: flex;
     flex-direction: column;
     justify-content: center;
+
+    @include respond-to("md") {
+      padding: spacing("2xl");
+    }
   }
 
   &__eyebrow {
@@ -339,13 +397,21 @@
     display: flex;
     flex-direction: column;
     gap: spacing("lg");
-    padding: spacing("2xl");
+    padding: spacing("xl");
+
+    @include respond-to("md") {
+      padding: spacing("2xl");
+    }
   }
 
   &__field-group {
     display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-columns: 1fr;
     gap: spacing("md");
+
+    @include respond-to("sm") {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
   }
 
   &__input,
@@ -377,28 +443,17 @@
   }
 
   &__submit.btn--primary {
-    width: fit-content;
+    width: 100%;
     padding-inline: spacing("2xl");
     background: linear-gradient(135deg, color("primary"), color("accent"));
+
+    @include respond-to("sm") {
+      width: fit-content;
+    }
 
     &:hover {
       background: linear-gradient(135deg, color("secondary"), color("accent"));
     }
   }
 
-  @media (max-width: map-get($breakpoints, "md")) {
-    &__content,
-    &__field-group {
-      grid-template-columns: 1fr;
-    }
-
-    &__intro,
-    &__form {
-      padding: spacing("xl");
-    }
-
-    &__submit.btn--primary {
-      width: 100%;
-    }
-  }
 }

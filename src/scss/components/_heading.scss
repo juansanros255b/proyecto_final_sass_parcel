@@ -9,24 +9,38 @@
   color: color("dark");
 
   &--hero {
-    font-size: font-size("3xl");
+    font-size: font-size("2xl");
     color: color("white");
+
+    @include respond-to("md") {
+      font-size: font-size("3xl");
+    }
   }
 
   &--section {
-    font-size: font-size("xl");
+    font-size: font-size("lg");
     text-align: center;
-    margin-bottom: spacing("2xl");
+    margin-bottom: spacing("xl");
     position: relative;
+
+    @include respond-to("md") {
+      font-size: font-size("xl");
+      margin-bottom: spacing("2xl");
+    }
 
     &::after {
       content: "";
       display: block;
-      width: 60px;
-      height: 4px;
+      width: 40px;
+      height: 3px;
       background-color: color("primary");
       margin: spacing("sm") auto 0;
       border-radius: map-get($radii, "full");
+
+      @include respond-to("md") {
+        width: 60px;
+        height: 4px;
+      }
     }
   }
 }

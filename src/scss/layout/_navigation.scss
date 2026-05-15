@@ -7,7 +7,12 @@
 .nav {
   &__list {
     @include flex-center();
-    gap: spacing("xl");
+    flex-wrap: wrap;
+    gap: spacing("sm") spacing("md");
+
+    @include respond-to("md") {
+      gap: spacing("xl");
+    }
   }
 
   &__link {
@@ -51,7 +56,10 @@
 
   // CTA en la nav
   &__cta {
-    margin-left: spacing("md");
+    margin-left: 0;
+    @include respond-to("md") {
+      margin-left: spacing("md");
+    }
     padding: spacing("xs") spacing("lg");
     background: linear-gradient(135deg, color("primary"), color("secondary"));
     color: color("white");

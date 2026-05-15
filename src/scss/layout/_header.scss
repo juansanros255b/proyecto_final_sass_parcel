@@ -5,9 +5,15 @@
 @use "../abstracts" as *;
 
 .header {
-  @include flex-center();
-  justify-content: space-between;
-  padding: spacing("md") spacing("2xl");
+  @include flex-center(column);
+  gap: spacing("md");
+  padding: spacing("md") spacing("lg");
+
+  @include respond-to("md") {
+    flex-direction: row;
+    justify-content: space-between;
+    padding: spacing("md") spacing("2xl");
+  }
   background: rgba(20, 20, 30, 0.85);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
